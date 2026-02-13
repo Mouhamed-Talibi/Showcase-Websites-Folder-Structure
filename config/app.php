@@ -10,8 +10,8 @@
     */
 
     define('APP_NAME', 'FolderStructureBase');
-    define('APP_ENV', 'production'); // development | production
-    define('APP_DEBUG', false);
+    define('APP_ENV', 'development'); // development | production
+    define('APP_DEBUG', true);
 
 
     /*
@@ -48,7 +48,10 @@
     | Change if needed
     */
 
-    define('BASE_URL', 'http://localhost/FolderStructureBase/public/');
+    define('BASE_URL', 
+        (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' .
+        $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\') . '/'
+    );
 
 
     /*

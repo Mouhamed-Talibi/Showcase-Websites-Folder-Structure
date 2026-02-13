@@ -5,7 +5,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en" prefix="og: https://ogp.me/ns#">
+<html lang="fr" prefix="og: https://ogp.me/ns#">
 
 <head>
 

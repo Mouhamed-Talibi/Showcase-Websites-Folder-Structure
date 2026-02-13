@@ -10,10 +10,31 @@
          */
         private static string $logsDir = LOGS_DIR;
 
+
+        /**
+         * Get correct log file based on environment
+         */
+        private static function getLogFile(string $level): string
+        {
+            // Development: single log file
+            if (APP_ENV === 'development') {
+                return 'dev_error.log';
+            }
+
+            // Production: separate logs
+            return match ($level) {
+                'INFO'    => 'info.log',
+                'WARNING' => 'warning.log',
+                'ERROR'   => 'error.log',
+                default  => 'app.log',
+            };
+        }
+
+
         /**
          * Write log entry
          */
-        private static function write(string $filename, string $level, string $message): void
+        private static function write(string $level, string $message): void
         {
             $dir = rtrim(self::$logsDir, '/\\');
 
@@ -21,6 +42,9 @@
             if (!is_dir($dir)) {
                 mkdir($dir, 0755, true);
             }
+
+            // Select file
+            $filename = self::getLogFile($level);
 
             // Full file path
             $filePath = $dir . DIRECTORY_SEPARATOR . $filename;
@@ -40,27 +64,30 @@
             file_put_contents($filePath, $log, FILE_APPEND | LOCK_EX);
         }
 
+
         /**
          * Info log
          */
         public static function info(string $message): void
         {
-            self::write('info.log', 'INFO', $message);
+            self::write('INFO', $message);
         }
+
 
         /**
          * Warning log
          */
         public static function warning(string $message): void
         {
-            self::write('warning.log', 'WARNING', $message);
+            self::write('WARNING', $message);
         }
+
 
         /**
          * Error log
          */
         public static function error(string $message): void
         {
-            self::write('error.log', 'ERROR', $message);
+            self::write('ERROR', $message);
         }
     }
