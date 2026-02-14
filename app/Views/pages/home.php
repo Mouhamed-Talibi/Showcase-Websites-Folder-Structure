@@ -3,7 +3,7 @@
 <br><br>
 
 
-<form action="<?= BASE_URL ?>signup" method="POST">
+<form action="<?= PUBLIC_URL ?>signup" method="POST">
     <input type="text" name="name" id="">
     <button type="submit">Send data</button>
 </form>

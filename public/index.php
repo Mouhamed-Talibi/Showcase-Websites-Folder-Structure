@@ -45,7 +45,10 @@
 
         // Development
         echo "<pre>";
-            echo $e;
+            echo "Message: " . $e->getMessage() . "\n\n";
+            echo "File: " . $e->getFile() . "\n";
+            echo "Line: " . $e->getLine() . "\n\n";
+            echo "Trace:\n" . $e->getTraceAsString();
         echo "</pre>";
         exit;
     }

@@ -8,7 +8,7 @@
         /**
          * Logs directory
          */
-        private static string $logsDir = LOGS_DIR;
+        private static string $logsDir = LOGS_PATH;
 
 
         /**

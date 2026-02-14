@@ -34,16 +34,16 @@
     <meta property="og:url" content="<?= $currentUrl; ?>">
 
     <!-- Preload Critical CSS -->
-    <link rel="preload" href="<?= PUBLIC_PATH ?>/assets/css/main.min.css" as="style">
+    <link rel="preload" href="<?= PUBLIC_URL ?>/assets/css/main.min.css" as="style">
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/main.min.css">
+    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/main.min.css">
 
     <!-- Page CSS (Lazy) -->
     <?php if (!empty($css) && is_array($css)): ?>
         <?php foreach ($css as $file): ?>
             <link rel="preload"
-                href="<?= PUBLIC_PATH ?>/assets/css/<?= htmlspecialchars($file); ?>"
+                href="<?= PUBLIC_URL ?>/assets/css/<?= htmlspecialchars($file); ?>"
                 as="style"
                 onload="this.rel='stylesheet'">
         <?php endforeach; ?>
@@ -51,7 +51,7 @@
 
     <!-- Fallback for no-JS -->
     <noscript>
-        <link rel="stylesheet" href="<?= PUBLIC_PATH ?>/assets/css/main.min.css">
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/assets/css/main.min.css">
     </noscript>
 
 </head>
@@ -80,12 +80,12 @@
     </script>
 
     <!-- Main JS (Deferred) -->
-    <script src="<?= PUBLIC_PATH ?>/assets/js/main.min.js" defer></script>
+    <script src="<?= PUBLIC_URL ?>/assets/js/main.min.js" defer></script>
 
     <!-- Page JS -->
     <?php if (!empty($js) && is_array($js)): ?>
         <?php foreach ($js as $file): ?>
-            <script src="<?= PUBLIC_PATH ?>/assets/js/<?= htmlspecialchars($file); ?>" defer></script>
+            <script src="<?= PUBLIC_URL ?>/assets/js/<?= htmlspecialchars($file); ?>" defer></script>
         <?php endforeach; ?>
     <?php endif; ?>
 
