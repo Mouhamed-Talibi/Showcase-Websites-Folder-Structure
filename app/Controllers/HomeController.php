@@ -13,7 +13,7 @@
             View::render('home', [
                 'title' => 'Mohamed talibi',
                 'name' => 'Mohamed talibi',
-                'css' => ['main.css','home.css']
+                'css' => ['main.css']
             ]);
         }
 

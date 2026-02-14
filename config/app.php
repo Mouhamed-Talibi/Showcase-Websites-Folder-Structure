@@ -72,7 +72,7 @@
     */
 
     // http://domain.com/project/public
-    define('PUBLIC_URL', $protocol . '://' . $host . $publicDir . '/');
+    define('PUBLIC_URL', rtrim($protocol . '://' . $host . $publicDir, '/') . '/');
 
     // http://domain.com/project
     define('BASE_URL', $protocol . '://' . $host . dirname($publicDir));
